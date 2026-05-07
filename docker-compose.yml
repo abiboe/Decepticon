@@ -160,6 +160,7 @@ services:
       - "127.0.0.1:${LANGGRAPH_PORT:-2024}:2024"
     env_file: .env
     environment:
+      - DATABASE_URL=postgresql://decepticon:${POSTGRES_PASSWORD:-decepticon}@postgres:5432/langgraph
       - DECEPTICON_LLM__PROXY_URL=http://litellm:4000
       - DECEPTICON_LLM__PROXY_API_KEY=${LITELLM_MASTER_KEY:-sk-decepticon-master}
       - DECEPTICON_DOCKER__SANDBOX_CONTAINER_NAME=decepticon-sandbox
